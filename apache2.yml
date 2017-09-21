@@ -1,0 +1,16 @@
+---
+
+  become: true
+  tasks:
+    - name: Update apt Cache
+      apt: update_cache=yes
+      
+    - name: Install Apache
+      apt: name=apache2 state=latest
+	   
+    - name: restart apache
+      service: name=apache2 state=restarted
+      
+    - name: adding index file
+      command: echo "Helo ITC Team" > /var/www/html/index.html
+	 
